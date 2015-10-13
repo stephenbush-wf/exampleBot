@@ -38,8 +38,16 @@ public class Example { // << This class must actually be called RobotPlayer, but
 				while ( true ) {
 					
 					if ( rc.isActive() ) {
-						Direction moveDir = rc.getLocation().directionTo(enemyBase); // I want to move in the direction of the enemy HQ
-						rc.move(moveDir); // Move in that direction!
+						Direction moveDir = rc.getLocation().directionTo(enemyBase); // I want to move in the direction of the enemy HQ!
+						MapLocation moveLocation = rc.getLocation().add(moveDir); // Get me the next adjacent location in that direction
+						
+						if ( rc.senseMine(moveLocation) != null ) { // But first make sure there are no mines
+							rc.defuseMine(moveLocation); // If so, defuse it!
+						} else {
+							rc.move(moveDir); // Move in that direction!							
+						}
+					
+						
 					}
 
 					rc.yield();
