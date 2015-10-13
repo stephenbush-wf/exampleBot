@@ -35,10 +35,11 @@ public class Example { // << This class must actually be called RobotPlayer, but
 			
 			case SOLDIER:
 				MapLocation enemyBase = rc.senseEnemyHQLocation(); // Get the enemy HQ location
+				MapLocation myTarget = getMidPoint(rc.senseHQLocation(), enemyBase); // Lets pick a target Rally point in the center between the two HQs
 				while ( true ) {
 					
 					if ( rc.isActive() ) {
-						Direction moveDir = rc.getLocation().directionTo(enemyBase); // I want to move in the direction of the enemy HQ!
+						Direction moveDir = rc.getLocation().directionTo(myTarget); // I want to move in the direction of my Rally Point instead!
 						
 						while( !rc.canMove(moveDir) ) { // Check to see if i can move there, ie whether or not there's another bot there
 							moveDir = moveDir.rotateLeft(); // If not, rotate until i get a direction with no robots
@@ -111,4 +112,11 @@ public class Example { // << This class must actually be called RobotPlayer, but
 			//run(rc);
 		}
 	}
+	
+	// Get the midpoint between two locations
+	private static MapLocation getMidPoint(MapLocation location1, MapLocation location2) {
+		int midX = (location1.x+location2.x)/2; // Get the middle value between these two X's
+		int midY = (location1.y+location2.y)/2; // Get the middle value between these two Y's
+		return new MapLocation(midX, midY); // Construct a new location object 
+	}	
 }
