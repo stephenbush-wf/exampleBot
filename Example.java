@@ -1,13 +1,14 @@
 package exampleBot;
 
 import battlecode.common.Direction;
+import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 
 
 public class Example { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
 	public static final boolean Run = false;
-
+	
 	
 	public static void run(RobotController rc) {
 		try {
@@ -17,8 +18,15 @@ public class Example { // << This class must actually be called RobotPlayer, but
 
 					if ( rc.isActive() ) {
 						Direction dir = rc.getLocation().directionTo(rc.senseEnemyHQLocation()); // Get the direction to the enemy Base
+						MapLocation spawnLocation = rc.getLocation().add(dir); // Get me the next adjacent location in that direction
+						
+						while ( rc.senseMine(spawnLocation) != null) { // Check to see if there's a mine at that location
+							dir = dir.rotateLeft(); // If so, rotate until we find a direction with no mines
+							spawnLocation = rc.getLocation().add(dir);
+						}
 						
 						rc.spawn(dir); // Spawn a robot in that direction!!
+						
 					} 
 
 					rc.yield();
@@ -84,7 +92,7 @@ public class Example { // << This class must actually be called RobotPlayer, but
 		} catch (Exception e) {
 			rc.breakpoint();
 			e.printStackTrace();
-			run(rc);
+			//run(rc);
 		}
 	}
 }
