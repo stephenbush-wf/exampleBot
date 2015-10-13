@@ -7,20 +7,28 @@ import battlecode.common.Direction;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 import battlecode.common.RobotType;
+import battlecode.common.Team;
 
 
 public class Example { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
-	public static final boolean Run = false;
+	public static final boolean Run = true;
 	
 	// Channel Constants -- Should NEVER collide.
-	static final int BC_SWARM_TARGET_X = 0;
-	static final int BC_SWARM_TARGET_Y = 1;
-	static final int BC_SWARM_COUNT = 2;
+	static int BC_SWARM_TARGET_X = 0;
+	static int BC_SWARM_TARGET_Y = 1;
+	static int BC_SWARM_COUNT = 2;
 
 	
 	public static void run(RobotController rc) {
 		try {
+			// Broadcasting space is SHARED between both teams!  So change these constants, so they dont cross the streams 
+			if ( rc.getTeam() == Team.A ) {
+				BC_SWARM_TARGET_X = 3;
+				BC_SWARM_TARGET_Y = 4;
+				BC_SWARM_COUNT = 5;
+				
+			}
 			switch (rc.getType()) {
 			case HQ:
 				while ( true ) { 
