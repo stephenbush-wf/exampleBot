@@ -6,7 +6,7 @@ import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 
 
-public class Example_10_Coordinate_Troop_Movement_With_Broadcasting {
+public class Example_10_Coordinate_Troop_Movement_With_Broadcasting { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
 	public static final boolean Run = false;
 	

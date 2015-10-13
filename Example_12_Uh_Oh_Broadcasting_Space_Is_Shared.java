@@ -10,7 +10,7 @@ import battlecode.common.RobotType;
 import battlecode.common.Team;
 
 
-public class Example_12_Uh_Oh_Broadcasting_Space_Is_Shared {
+public class Example_12_Uh_Oh_Broadcasting_Space_Is_Shared { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
 	public static final boolean Run = true;
 	
@@ -210,5 +210,4 @@ public class Example_12_Uh_Oh_Broadcasting_Space_Is_Shared {
 		int midY = (location1.y+location2.y)/2; // Get the middle value between these two Y's
 		return new MapLocation(midX, midY); // Construct a new location object 
 	}
-	
 }

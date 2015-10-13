@@ -3,7 +3,7 @@ package exampleBot;
 import battlecode.common.RobotController;
 
 
-public class Example_0_Basic_Template {
+public class Example_0_Basic_Template { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
 	public static final boolean Run = false;
 
@@ -83,10 +83,4 @@ public class Example_0_Basic_Template {
 			run(rc);
 		}
 	}
-
-	/* .---------------------.
-	 * |  Sub-Class Methods  | 
-	 * '---------------------' */
-	
-	
 }

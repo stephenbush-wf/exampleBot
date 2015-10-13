@@ -5,7 +5,7 @@ import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 
 
-public class Example_8_Awe_Crap_Im_Walking_On_Mines_Again {
+public class Example_8_Awe_Crap_Im_Walking_On_Mines_Again { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
 	public static final boolean Run = false;
 

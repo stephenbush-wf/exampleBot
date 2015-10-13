@@ -9,7 +9,7 @@ import battlecode.common.RobotController;
 import battlecode.common.RobotType;
 
 
-public class Example_11_Lets_Build_Some_Suppliers {
+public class Example_11_Lets_Build_Some_Suppliers { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
 	public static final boolean Run = false;
 	
@@ -202,5 +202,4 @@ public class Example_11_Lets_Build_Some_Suppliers {
 		int midY = (location1.y+location2.y)/2; // Get the middle value between these two Y's
 		return new MapLocation(midX, midY); // Construct a new location object 
 	}
-	
 }

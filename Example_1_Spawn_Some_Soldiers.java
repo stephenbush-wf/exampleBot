@@ -4,7 +4,7 @@ import battlecode.common.Direction;
 import battlecode.common.RobotController;
 
 
-public class Example_1_Spawn_Some_Soldiers {
+public class Example_1_Spawn_Some_Soldiers { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
 	public static final boolean Run = false;
 
@@ -87,10 +87,4 @@ public class Example_1_Spawn_Some_Soldiers {
 			run(rc);
 		}
 	}
-
-	/* .---------------------.
-	 * |  Sub-Class Methods  | 
-	 * '---------------------' */
-	
-	
 }

@@ -5,7 +5,7 @@ import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 
 
-public class Example_6_Oops_Dont_Walk_Into_Other_Robots {
+public class Example_6_Oops_Dont_Walk_Into_Other_Robots { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
 	public static final boolean Run = false;
 

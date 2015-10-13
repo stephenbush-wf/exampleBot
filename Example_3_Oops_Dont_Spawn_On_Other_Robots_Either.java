@@ -5,7 +5,7 @@ import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 
 
-public class Example_3_Oops_Dont_Spawn_On_Other_Robots_Either {
+public class Example_3_Oops_Dont_Spawn_On_Other_Robots_Either { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
 	public static final boolean Run = false;
 
@@ -96,10 +96,4 @@ public class Example_3_Oops_Dont_Spawn_On_Other_Robots_Either {
 			//run(rc);
 		}
 	}
-
-	/* .---------------------.
-	 * |  Sub-Class Methods  | 
-	 * '---------------------' */
-	
-	
 }

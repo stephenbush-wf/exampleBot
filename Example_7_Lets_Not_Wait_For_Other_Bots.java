@@ -5,7 +5,7 @@ import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 
 
-public class Example_7_Lets_Not_Wait_For_Other_Bots {
+public class Example_7_Lets_Not_Wait_For_Other_Bots { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
 	public static final boolean Run = false;
 

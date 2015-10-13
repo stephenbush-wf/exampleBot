@@ -5,7 +5,7 @@ import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
 
 
-public class Example_4_Chaaaaaaaaarge {
+public class Example_4_Chaaaaaaaaarge { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
 	public static final boolean Run = false;
 
@@ -99,10 +99,4 @@ public class Example_4_Chaaaaaaaaarge {
 			//run(rc);
 		}
 	}
-
-	/* .---------------------.
-	 * |  Sub-Class Methods  | 
-	 * '---------------------' */
-	
-	
 }
