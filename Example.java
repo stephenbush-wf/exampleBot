@@ -34,9 +34,12 @@ public class Example { // << This class must actually be called RobotPlayer, but
 				}
 			
 			case SOLDIER:
+				MapLocation enemyBase = rc.senseEnemyHQLocation(); // Get the enemy HQ location
 				while ( true ) {
 					
 					if ( rc.isActive() ) {
+						Direction moveDir = rc.getLocation().directionTo(enemyBase); // I want to move in the direction of the enemy HQ
+						rc.move(moveDir); // Move in that direction!
 					}
 
 					rc.yield();
