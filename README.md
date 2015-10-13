@@ -1,5 +1,6 @@
 
 ## Blitzcode 2015 ExampleBot Development:
+- [Example 0 -- Basic Template](https://github.com/stephenbush-wf/exampleBot/blob/master/Example_0_Basic_Template.java)
 - [Example 0 -> Example 1 -- Spawn Some Soldiers](https://github.com/stephenbush-wf/exampleBot/commit/93b8d9366ed4e6ac5ba24bcdb8637d97e78bb0de)
 - [Example 1 -> Example 2 -- Oops Dont Spawn On Mines](https://github.com/stephenbush-wf/exampleBot/commit/c4f73c8c3763c9f6fe0fd3ef021062135d4df700)
 - [Example 2 -> Example 3 -- Oops Dont Spawn On Other Robots Either](https://github.com/stephenbush-wf/exampleBot/commit/a0c486dc8ab641c84ba79ea756755c444a90291e)
