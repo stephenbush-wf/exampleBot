@@ -1,3 +1,3 @@
 
-# Blitzcode 2015 ExampleBot Progression:
-### [Example 0 -> Example 1](https://github.com/stephenbush-wf/exampleBot/commit/d54ca3277fd59d4865dc24716b8bd6d1f5112fa2)
+## Blitzcode 2015 ExampleBot Development:
+- [Example 0 -> Example 1](https://github.com/stephenbush-wf/exampleBot/commit/d54ca3277fd59d4865dc24716b8bd6d1f5112fa2) Spawn Some Soldiers
