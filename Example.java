@@ -8,7 +8,7 @@ import battlecode.common.RobotController;
 public class Example { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
 	public static final boolean Run = false;
-	
+
 	
 	public static void run(RobotController rc) {
 		try {
@@ -20,7 +20,8 @@ public class Example { // << This class must actually be called RobotPlayer, but
 						Direction dir = rc.getLocation().directionTo(rc.senseEnemyHQLocation()); // Get the direction to the enemy Base
 						MapLocation spawnLocation = rc.getLocation().add(dir); // Get me the next adjacent location in that direction
 						
-						while ( rc.senseMine(spawnLocation) != null) { // Check to see if there's a mine at that location
+						// Check to see if there's a mine OR another robot at that location
+						while ( rc.senseMine(spawnLocation) != null || rc.senseObjectAtLocation(spawnLocation) != null ) {
 							dir = dir.rotateLeft(); // If so, rotate until we find a direction with no mines
 							spawnLocation = rc.getLocation().add(dir);
 						}
