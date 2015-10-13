@@ -44,8 +44,10 @@ public class Example { // << This class must actually be called RobotPlayer, but
 						if ( rc.senseMine(moveLocation) != null ) { // But first make sure there are no mines
 							rc.defuseMine(moveLocation); // If so, defuse it!
 						} else {
-							if ( rc.canMove(moveDir) ) // Check to see if i can move there, ie whether or not there's another bot there
-								rc.move(moveDir); // If so, move in that direction!
+							while( !rc.canMove(moveDir) ) { // Check to see if i can move there, ie whether or not there's another bot there
+								moveDir = moveDir.rotateLeft(); // If not, rotate until i get a direction with no robots
+							}
+							rc.move(moveDir); // If so, move in that direction!
 						}
 					
 						
