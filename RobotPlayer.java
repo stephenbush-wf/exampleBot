@@ -7,10 +7,6 @@ public class RobotPlayer {
 
 	public static void run(RobotController rc) {
 
-		if ( Example_0_Basic_Template.Run ) Example_0_Basic_Template.run(rc);
-		if ( Example_0_Basic_Template.Run ) Example_0_Basic_Template.run(rc);
-		if ( Example_0_Basic_Template.Run ) Example_0_Basic_Template.run(rc);
-		if ( Example_0_Basic_Template.Run ) Example_0_Basic_Template.run(rc);
 		if ( Example_12_Uh_Oh_Broadcasting_Space_Is_Shared.Run ) Example_12_Uh_Oh_Broadcasting_Space_Is_Shared.run(rc);
 		if ( Example_11_Lets_Build_Some_Suppliers.Run ) Example_11_Lets_Build_Some_Suppliers.run(rc);
 		if ( Example_10_Coordinate_Troop_Movement_With_Broadcasting.Run ) Example_10_Coordinate_Troop_Movement_With_Broadcasting.run(rc);
