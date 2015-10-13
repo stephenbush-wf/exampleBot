@@ -1,5 +1,6 @@
 package exampleBot;
 
+import battlecode.common.Clock;
 import battlecode.common.Direction;
 import battlecode.common.MapLocation;
 import battlecode.common.RobotController;
@@ -8,6 +9,11 @@ import battlecode.common.RobotController;
 public class Example { // << This class must actually be called RobotPlayer, but isnt solely for this demo
 	
 	public static final boolean Run = false;
+	
+	// Channel Constants -- Should NEVER collide.
+	static final int BC_SWARM_TARGET_X = 0;
+	static final int BC_SWARM_TARGET_Y = 1;
+	static final int BC_SWARM_COUNT = 2;
 
 	
 	public static void run(RobotController rc) {
@@ -15,6 +21,17 @@ public class Example { // << This class must actually be called RobotPlayer, but
 			switch (rc.getType()) {
 			case HQ:
 				while ( true ) { 
+					
+					MapLocation swarmTarget = getMidPoint(rc.senseHQLocation(), rc.senseEnemyHQLocation()); // Lets pick a target Rally point in the center between the two HQs
+					// When the time is right, Attaaaaaaack!
+					if ( rc.readBroadcast(BC_SWARM_COUNT) > 25 ) swarmTarget = rc.senseEnemyHQLocation();
+					
+					// Each turn, bots who are still alive will increment this count, so that we can know how many there are.
+					rc.broadcast(BC_SWARM_COUNT, 0); // But i need to zero it each turn at the HQ
+					
+					// Broadcast the coordinates for the target!
+					rc.broadcast(BC_SWARM_TARGET_X, swarmTarget.x);
+					rc.broadcast(BC_SWARM_TARGET_Y, swarmTarget.y);
 
 					if ( rc.isActive() ) {
 						Direction dir = rc.getLocation().directionTo(rc.senseEnemyHQLocation()); // Get the direction to the enemy Base
@@ -27,17 +44,20 @@ public class Example { // << This class must actually be called RobotPlayer, but
 						}
 						
 						rc.spawn(dir); // Spawn a robot in that direction!!
-						
+	
 					} 
 
 					rc.yield();
 				}
 			
 			case SOLDIER:
-				MapLocation enemyBase = rc.senseEnemyHQLocation(); // Get the enemy HQ location
-				MapLocation myTarget = getMidPoint(rc.senseHQLocation(), enemyBase); // Lets pick a target Rally point in the center between the two HQs
 				while ( true ) {
+					// Read the target, in case it changes!
+					MapLocation myTarget = new MapLocation(rc.readBroadcast(BC_SWARM_TARGET_X), rc.readBroadcast(BC_SWARM_TARGET_Y));
 					
+					// Increment the swarm count because i am still alive!
+					rc.broadcast(BC_SWARM_COUNT, rc.readBroadcast(BC_SWARM_COUNT)+1);
+							
 					if ( rc.isActive() ) {
 						Direction moveDir = rc.getLocation().directionTo(myTarget); // I want to move in the direction of my Rally Point instead!
 						
@@ -118,5 +138,6 @@ public class Example { // << This class must actually be called RobotPlayer, but
 		int midX = (location1.x+location2.x)/2; // Get the middle value between these two X's
 		int midY = (location1.y+location2.y)/2; // Get the middle value between these two Y's
 		return new MapLocation(midX, midY); // Construct a new location object 
-	}	
+	}
+	
 }
