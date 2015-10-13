@@ -1,5 +1,6 @@
 package exampleBot;
 
+import battlecode.common.Direction;
 import battlecode.common.RobotController;
 
 
@@ -15,6 +16,9 @@ public class Example { // << This class must actually be called RobotPlayer, but
 				while ( true ) { 
 
 					if ( rc.isActive() ) {
+						Direction dir = rc.getLocation().directionTo(rc.senseEnemyHQLocation()); // Get the direction to the enemy Base
+						
+						rc.spawn(dir); // Spawn a robot in that direction!!
 					} 
 
 					rc.yield();
@@ -82,5 +86,5 @@ public class Example { // << This class must actually be called RobotPlayer, but
 			e.printStackTrace();
 			run(rc);
 		}
-	}	
+	}
 }
